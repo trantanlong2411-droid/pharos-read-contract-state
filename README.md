@@ -2,6 +2,32 @@
 
 Read-only ERC-20 state queries against the LINK token on Pharos Mainnet, performed through the Pharos MCP server. No transactions were sent and no private key was used.
 
+## Run the actual MCP reader
+
+The website is a static snapshot. The included [read-contract.js](./read-contract.js) is the reproducible, **executable** component that connects directly to the official hosted Pharos MCP endpoint using Streamable HTTP and performs four read-only `eth_call` requests.
+
+Requirements: Node.js 20+.
+
+```bash
+npm install
+npm run check
+npm start
+```
+
+`npm start` reads the archived snapshot block `0x1348ad4` (20220628), making the results comparable with this README. For the current on-chain state:
+
+```bash
+npm run latest
+```
+
+The script calls `get_chain_info`, verifies Chain ID 1672, invokes `eth_call` for `name()`, `symbol()`, `decimals()` and `totalSupply()`, decodes responses using an ERC-20 ABI, formats the supply with exact integer arithmetic, then outputs JSON with selectors, raw hex and decoded values. No wallet, transaction, gas payment, API key, or private key is required.
+
+A successful run prints JSON including `"humanReadableSupply": "2.972781885597664963 LINK"` for the pinned historical block. Network access and an operational Pharos MCP endpoint are required. If historical RPC state is unavailable, the pinned run may fail; `npm run latest` can query the latest state instead, but its numbers can differ.
+
+Website: https://trantanlong2411-droid.github.io/pharos-read-contract-state/
+
+---
+
 ## Target
 
 | Field | Value |
