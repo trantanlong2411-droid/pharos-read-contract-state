@@ -19,6 +19,9 @@
   },
   "block": "0x1348ad4"
 }</pre><p>This example reads <code>decimals()</code>. Replace <code>data</code> with one of the other selectors to reproduce the other reads. For ABI strings, decode dynamic string offset, length and UTF-8 contents; for unsigned 256-bit numbers, interpret the hex as an integer before scaling by token decimals.</p><p><a href="./README.md">Read the README.md documentation</a> · <a href="https://github.com/PharosNetwork/pharos-mcp">Official Pharos MCP repository</a></p></section>
+<section class="card"><h2>Run the MCP reader yourself</h2><p>This repository includes an executable Node.js script that connects to the official Pharos MCP server, makes four live <code>eth_call</code> requests, decodes the ABI outputs, and reports exact decimal-adjusted values. The archived view above is a pinned-block snapshot rather than a live browser query.</p><pre>npm install
+npm start        # historical block 20220628
+npm run latest   # current chain state</pre><p><a class="cta" href="https://github.com/trantanlong2411-droid/pharos-read-contract-state/blob/main/read-contract.js">View runnable MCP script</a> <a href="https://github.com/trantanlong2411-droid/pharos-read-contract-state#run-the-actual-mcp-reader">Setup instructions</a></p></section>
 <section class="card"><h2>Evidence and limitations</h2><p class="warn">This page is a static publication of responses recorded through an AI.PHAROS MCP conversation at block 20,220,628. It is not a live blockchain query or a running MCP agent. Reviewers can independently reproduce the calls using the instructions above.</p><p>No funds or private keys are required for the read-only calls. Values refer only to this contract at the specified block; do not interpret them as the global LINK supply.</p></section>
 <footer><small>Created for Pharos Agent Arena · Read Contract State. This independent community demonstration is not an official Pharos website.</small></footer>
 </body></html>
