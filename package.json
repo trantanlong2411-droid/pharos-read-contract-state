@@ -1,0 +1,16 @@
+{
+  "name": "pharos-read-contract-state",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node read-contract.js",
+    "latest": "node read-contract.js --latest",
+    "check": "node --check read-contract.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "ethers": "^6.0.0"
+  },
+  "engines": { "node": ">=20" }
+}
